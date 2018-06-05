@@ -9,7 +9,7 @@ CC     = gcc
 CFLAGS = -Wall -std=c99
 # modify the flags here ^
 EXE    = a2
-OBJ    = main.o list.o spell.o hashtbl.o strhash.o bktree.o
+OBJ    = src/main.o src/list.o src/spell.o src/hashtbl.o src/strhash.o src/bktree.o
 # add any new object files here ^
 
 # top (default) target
@@ -20,12 +20,12 @@ $(EXE): $(OBJ)
 	$(CC) $(CFLAGS) -o $(EXE) $(OBJ)
 
 # other dependencies
-main.o: list.h spell.h hashtbl.h
-spell.o: spell.h list.h bktree.h
-list.o: list.h
-hashtbl.o: hashtbl.h strhash.h
-strhash.o: strhash.h
-bktree.o: bktree.h list.h spell.h
+src/main.o: src/list.h src/spell.h src/hashtbl.h
+src/spell.o: src/spell.h src/list.h src/bktree.h
+src/list.o: src/list.h
+src/hashtbl.o: src/hashtbl.h src/strhash.h
+src/strhash.o: src/strhash.h
+src/bktree.o: src/bktree.h src/list.h src/spell.h
 # ^ add any new dependencies here (for example if you add new modules)
 
 # phony targets (these targets do not represent actual files)
