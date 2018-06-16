@@ -8,7 +8,7 @@
 CC     = gcc
 CFLAGS = -Wall -std=c99
 EXE    = a1
-OBJ    = main.o query.o index.o list.o heap.o heap_sort.o
+OBJ    = src/main.o src/query.o src/index.o src/list.o src/heap.o src/heap_sort.o
 #				add any new object files here ^
 
 # top (default) target
@@ -19,12 +19,12 @@ $(EXE): $(OBJ)
 	$(CC) $(CFLAGS) -o $(EXE) $(OBJ)
 
 # other dependencies
-main.o: query.h index.h
-query.o: query.h index.h list.h heap.h heap_sort.h
-index.o: index.h list.h
-list.o: list.h
-heap.o: heap.h
-heap_sort.o: heap_sort.h heap.h
+src/main.o: src/query.h src/index.h
+src/query.o: src/query.h src/index.h src/list.h src/heap.h src/heap_sort.h
+src/index.o: src/index.h src/list.h
+src/list.o: src/list.h
+src/heap.o: src/heap.h
+src/heap_sort.o: src/heap_sort.h src/heap.h
 
 # ^ add any new dependencies here
 
