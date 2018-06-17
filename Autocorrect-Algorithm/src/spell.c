@@ -21,7 +21,6 @@
  */
 #define ALPHA_LEN 26
 #define TOLERANCE 3
-#define DICT_SIZE 250000
 
 #include <stdio.h>
 #include <string.h>
@@ -158,7 +157,7 @@ void print_checked(List *dictionary, List *document) {
 * CREATE A HASHTABLE FROM A DICTIONARY OF WORDS
 */
 HashTable *create_dict(List *dictionary){
-	HashTable *new_dict = new_hash_table(DICT_SIZE);
+	HashTable *new_dict = new_hash_table(dictionary->size);
 
 	//insert all words in `dictionary` into HashTable
 	Node *curr;
